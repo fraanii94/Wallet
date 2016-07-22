@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Money : Equatable, Currency{
+class Money : Equatable{
 
     private(set) var amount     : NSInteger = 0
     private(set) var currency : Currencies
@@ -58,9 +58,3 @@ func ==(lhs: Money, rhs: Money) -> Bool{
     
 }
 
-protocol Currency {
-    
-    
-    static func euroWithAmount(amount am: NSInteger) ->  AnyObject
-    static func dollarWithAmount(amount am: NSInteger) ->  AnyObject
-}
