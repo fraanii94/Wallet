@@ -11,4 +11,15 @@ import Foundation
 enum Currencies{
     case EUR
     case USD
+    
+    func stringFor() -> String{
+        switch self {
+        case .EUR:
+            return "EUR"
+        case .USD:
+            return "USD"
+            
+        }
+    }
 }
+

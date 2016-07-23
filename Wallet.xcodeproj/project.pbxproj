@@ -17,6 +17,12 @@
 		A1966D841D40D74600525097 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1966D831D40D74600525097 /* Currencies.swift */; };
 		A1966D851D40D85A00525097 /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1966D811D40D46400525097 /* Money.swift */; };
 		A1966D861D40D85D00525097 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1966D831D40D74600525097 /* Currencies.swift */; };
+		A1966D881D421F0400525097 /* Broker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1966D871D421F0400525097 /* Broker.swift */; };
+		A1966D8A1D425C6300525097 /* BrokerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1966D891D425C6300525097 /* BrokerTests.swift */; };
+		A1966D8B1D425C6800525097 /* Broker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1966D871D421F0400525097 /* Broker.swift */; };
+		A1966D8D1D44215600525097 /* WalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1966D8C1D44215600525097 /* WalletTests.swift */; };
+		A1966D8F1D44229500525097 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1966D8E1D44229500525097 /* Wallet.swift */; };
+		A1966D901D44229500525097 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1966D8E1D44229500525097 /* Wallet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +48,10 @@
 		A1966D7E1D40D40400525097 /* MoneyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyTests.swift; sourceTree = "<group>"; };
 		A1966D811D40D46400525097 /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		A1966D831D40D74600525097 /* Currencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
+		A1966D871D421F0400525097 /* Broker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Broker.swift; sourceTree = "<group>"; };
+		A1966D891D425C6300525097 /* BrokerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokerTests.swift; sourceTree = "<group>"; };
+		A1966D8C1D44215600525097 /* WalletTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletTests.swift; sourceTree = "<group>"; };
+		A1966D8E1D44229500525097 /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +107,10 @@
 		A1966D721D40D3E700525097 /* WalletTests */ = {
 			isa = PBXGroup;
 			children = (
+				A1966D891D425C6300525097 /* BrokerTests.swift */,
 				A1966D7E1D40D40400525097 /* MoneyTests.swift */,
 				A1966D751D40D3E700525097 /* Info.plist */,
+				A1966D8C1D44215600525097 /* WalletTests.swift */,
 			);
 			path = WalletTests;
 			sourceTree = "<group>";
@@ -108,6 +120,8 @@
 			children = (
 				A1966D811D40D46400525097 /* Money.swift */,
 				A1966D831D40D74600525097 /* Currencies.swift */,
+				A1966D871D421F0400525097 /* Broker.swift */,
+				A1966D8E1D44229500525097 /* Wallet.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -215,9 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1966D8F1D44229500525097 /* Wallet.swift in Sources */,
 				A1966D821D40D46400525097 /* Money.swift in Sources */,
 				A1966D611D40D3E700525097 /* ViewController.swift in Sources */,
 				A1966D841D40D74600525097 /* Currencies.swift in Sources */,
+				A1966D881D421F0400525097 /* Broker.swift in Sources */,
 				A1966D5F1D40D3E700525097 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,8 +242,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1966D8A1D425C6300525097 /* BrokerTests.swift in Sources */,
+				A1966D901D44229500525097 /* Wallet.swift in Sources */,
 				A1966D861D40D85D00525097 /* Currencies.swift in Sources */,
 				A1966D851D40D85A00525097 /* Money.swift in Sources */,
+				A1966D8B1D425C6800525097 /* Broker.swift in Sources */,
+				A1966D8D1D44215600525097 /* WalletTests.swift in Sources */,
 				A1966D7F1D40D40400525097 /* MoneyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +432,7 @@
 				A1966D7A1D40D3E700525097 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1966D7B1D40D3E700525097 /* Build configuration list for PBXNativeTarget "WalletTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +441,7 @@
 				A1966D7D1D40D3E700525097 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

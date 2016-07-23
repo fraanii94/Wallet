@@ -12,29 +12,34 @@ import XCTest
 class MoneyTests: XCTestCase {
     
     func testMultiplication(){
-        let five = Money.euroWithAmount(amount: 5) as! Money
-        let ten = Money.euroWithAmount(amount: 10) as! Money
-        let total = five.times(2)
+        let five = Money.euroWithAmount(amount: 5) 
+        let ten = Money.euroWithAmount(amount: 10) 
+        let total = five.times(2) as! Money
         
+        let totalDollars = (Money.dollarWithAmount(amount: 5)).times(2) as! Money
+        let tenDollars = Money.dollarWithAmount(amount: 10)
         XCTAssertEqual(ten, total, "5€ * 2 should be 10€")
-        XCTAssertEqual((Money.dollarWithAmount(amount: 5) as! Money).times(2), (Money.dollarWithAmount(amount: 10) as! Money), "5$ * 2 should be 10$")
+        XCTAssertEqual(totalDollars, tenDollars, "5$ * 2 should be 10$")
         
     }
     
     func testSum(){
-        let five = Money.euroWithAmount(amount: 5) as! Money
-        let ten = Money.euroWithAmount(amount: 10) as! Money
-        let two = Money.dollarWithAmount(amount: 2) as! Money
-        let four = Money.dollarWithAmount(amount: 4) as! Money
+        let five = Money.euroWithAmount(amount: 5) 
+        let ten = Money.euroWithAmount(amount: 10)
+        let total = five.plus(five) as! Money
         
-        XCTAssertEqual(ten, five.plus(5), "5€ + 5€ should be 10€")
-        XCTAssertEqual(four, two.plus(2), "2$ + 2$ should be 4$")
+        let two = Money.dollarWithAmount(amount: 2) 
+        let four = Money.dollarWithAmount(amount: 4)
+        let totalDollars = two.plus(two) as! Money
+        
+        XCTAssertEqual(ten, total, "5€ + 5€ should be 10€")
+        XCTAssertEqual(four, totalDollars, "2$ + 2$ should be 4$")
     }
     
     func testCurrencyAfterMultiplication(){
         
-        let euro = (Money.euroWithAmount(amount: 1) as! Money).times(2)
-        let dollar = (Money.dollarWithAmount(amount: 1) as! Money).times(2)
+        let euro = Money.euroWithAmount(amount: 1).times(2) as! Money
+        let dollar = Money.dollarWithAmount(amount: 1).times(2) as! Money
         
         XCTAssertEqual(Currencies.EUR, euro.currency, "Currency should be the same after multiplication")
         XCTAssertEqual(Currencies.USD, dollar.currency, "Currency should be the same after multiplication")
@@ -42,16 +47,19 @@ class MoneyTests: XCTestCase {
     
     func testCurrencyAfterSum(){
         
-        let euro = (Money.euroWithAmount(amount: 2) as! Money).plus(2)
-        let dollar = (Money.dollarWithAmount(amount: 2) as! Money).plus(2)
+        var euro = Money.euroWithAmount(amount: 1)
+        euro = euro.plus(euro) as! Money
+        
+        var dollar = Money.dollarWithAmount(amount: 2)
+        dollar = dollar.plus(dollar) as! Money
         
         XCTAssertEqual(Currencies.EUR, euro.currency, "Currency should be the same after sum")
         XCTAssertEqual(Currencies.USD, dollar.currency, "Currency should be the same after sum")
     }
     
     func testCurrencyStorage(){
-        let four = Money.euroWithAmount(amount: 4) as! Money
-        let two = Money.dollarWithAmount(amount: 2) as! Money
+        let four = Money.euroWithAmount(amount: 4) 
+        let two = Money.dollarWithAmount(amount: 2) 
         
         XCTAssertEqual(4, four.amount , "Money storaged should be same than created")
         XCTAssertEqual(2, two.amount , "Money storaged should be same than created")
@@ -59,8 +67,8 @@ class MoneyTests: XCTestCase {
 
     
     func testCurrencies(){
-        let euro    = Money.euroWithAmount(amount: 1) as! Money
-        let dollar  = Money.dollarWithAmount(amount: 1) as! Money
+        let euro    = Money.euroWithAmount(amount: 1) 
+        let dollar  = Money.dollarWithAmount(amount: 1) 
         
         XCTAssertEqual(euro.currency, Currencies.EUR, "The currency of an euro should be EUR")
         XCTAssertEqual(dollar.currency, Currencies.USD, "The currency of a dollar should be USD")
@@ -68,20 +76,38 @@ class MoneyTests: XCTestCase {
     
     func testEquality(){
         // For euro
-        let five    = Money.euroWithAmount(amount: 5) as! Money
-        XCTAssertEqual(five, (Money.euroWithAmount(amount: 5) as! Money), "Same objects should be equal")
-        XCTAssertNotEqual(five, (Money.euroWithAmount(amount: 3) as! Money), "Different objects should be different")
+        let five    = Money.euroWithAmount(amount: 5) 
+        XCTAssertEqual(five, Money.euroWithAmount(amount: 5), "Same objects should be equal")
+        XCTAssertNotEqual(five, Money.euroWithAmount(amount: 3), "Different objects should be different")
         
         // For Dollars
-        let ten    = Money.dollarWithAmount(amount: 10) as! Money
-        XCTAssertEqual(ten, (Money.dollarWithAmount(amount: 10) as! Money), "Same objects should be equal")
-        XCTAssertNotEqual(ten, (Money.dollarWithAmount(amount: 3) as! Money), "Different objects should be different")
+        let ten    = Money.dollarWithAmount(amount: 10) 
+        XCTAssertEqual(ten, Money.dollarWithAmount(amount: 10), "Same objects should be equal")
+        XCTAssertNotEqual(ten, Money.dollarWithAmount(amount: 3), "Different objects should be different")
     }
+    
+    func testHash(){
+        
+        let euro = Money.euroWithAmount(amount: 1)
+        
+        XCTAssertEqual(Int(euro.amount), euro.hashValue,"The hash should be the amount")
+        
+    }
+    
+    func testDescription(){
+        
+        let euro = Money.euroWithAmount(amount: 1)
+        
+        XCTAssertEqual(euro.description, "<Money EUR1.0>", "Money description should satisfy the format")
+        
+    }
+    
     
     func testDifferentCurrencies(){
         
-        XCTAssertNotEqual((Money.euroWithAmount(amount: 5) as! Money),(Money.dollarWithAmount(amount: 5) as! Money), "Different currencies should be different")
+        XCTAssertNotEqual(Money.euroWithAmount(amount: 5),Money.dollarWithAmount(amount: 5), "Different currencies should be different")
     }
+    
     
 
     func testPerformanceExample() {
