@@ -38,6 +38,19 @@ class WalletTests: XCTestCase {
         
         
     }
+    
+    func testCurrencyAtIndex(){
+        let wallet = Wallet(amount: 1, currency: .USD)
+        XCTAssertEqual(Currencies.USD,wallet.currencyAt(index: 0),"The first currency should be USD")
+    }
+    
+    func testNumberOfMoneysAt(){
+        let wallet = Wallet(amount: 1, currency: .USD)
+        wallet.plus(Money.dollarWithAmount(amount: 1))
+        XCTAssertEqual(2, wallet.numberOfMoneysAt(index: 0),"USD currency should have two moneys")
+    }
+    
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {

@@ -11,6 +11,15 @@ import XCTest
 
 class MoneyTests: XCTestCase {
     
+    
+    func testInit(){
+        
+        let money = Money(amount: 1, currency: .GBP)
+        
+        XCTAssertEqual(Currencies.GBP, money.currency,"The initializer should keep same currency")
+        
+    }
+    
     func testMultiplication(){
         let five = Money.euroWithAmount(amount: 5) 
         let ten = Money.euroWithAmount(amount: 10) 

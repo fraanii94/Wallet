@@ -26,7 +26,7 @@ class Broker {
     }
     
     func key(fromCurrency f: Currencies,toCurrency t: Currencies) -> String{
-        return "\(f.stringFor())-\(t.stringFor())"
+        return "\(f.description())-\(t.description())"
     }
     
     func reduce(money m: _Money,toCurrency t: Currencies) throws ->  Money{

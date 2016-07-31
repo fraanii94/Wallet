@@ -15,7 +15,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let money = Money.poundWithAmount(amount: 2)
+        let euros = Money.euroWithAmount(amount: 5)
+        let wallet = Wallet(amount: 1, currency: .USD)
+        wallet.plus(money)
+        wallet.plus(money)
+        wallet.plus(euros)
+        wallet.plus(euros)
+        let broker = Broker()
+        broker.add(rate: 2, fromCurrency: .EUR, toCurrency: .USD)
+        broker.add(rate: 2, fromCurrency: .GBP, toCurrency: .EUR)
+        let walletVC = WalletTableViewController(model: wallet, broker: broker)
+        
+        window?.rootViewController = UINavigationController(rootViewController: walletVC)
+        
+        window?.makeKeyAndVisible()
+    
+        
         return true
     }
 

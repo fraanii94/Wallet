@@ -28,6 +28,10 @@ class Money : Equatable, Hashable, _Money{
         return Money(amount: am, currency: .USD)
     }
     
+    static func poundWithAmount(amount am: Double) -> Money {
+        return Money(amount: am, currency: .GBP)
+    }
+
     
     required init(amount am:Double, currency c:Currencies){
         amount = am
